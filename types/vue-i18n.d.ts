@@ -10,7 +10,7 @@ export type LocaleMessageObject = { [key: string]: LocaleMessage | LocaleMessage
 export type LocaleMessageArray = Array<LocaleMessage | LocaleMessageObject>;
 export type LocaleMessages = { [key: string]: LocaleMessageObject };
 
-export type TranslateResult = string | Array<string>;
+export type TranslateResult = string;
 export type MissingHandler = (locale: Locale, key: Path, vm?: any) => void;
 
 declare type FormatterOptions = {
