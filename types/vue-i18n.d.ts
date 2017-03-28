@@ -21,6 +21,18 @@ declare interface Formatter {
   format (message: string, values: any): string;
 }
 
+export declare interface Translate {
+  (key: Path, values?: any): TranslateResult;
+}
+
+export declare interface TranslateChoices {
+  (key: Path, choice: number, values?: any): TranslateResult;
+}
+
+export declare interface TranslationExists {
+  (key: Path, args?: any): boolean;
+}
+
 export declare class VueI18n {
   constructor (options?: VueI18nOptions);
 
@@ -35,9 +47,9 @@ export declare class VueI18n {
   formatter (formatter: Formatter): void;
   getLocaleMessage (locale: Locale): LocaleMessage;
   setLocaleMessage (locale: Locale, message: LocaleMessage): void;
-  t (key: Path, values: any): TranslateResult;
-  tc (key: Path, choice: number, values: any): TranslateResult;
-  te (key: Path, args: any): boolean;
+  t: Translate;
+  tc: TranslateChoices;
+  te: TranslationExists;
   watchLocale (): any;
   unwatchLocale (): boolean;
 
